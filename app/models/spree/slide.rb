@@ -5,7 +5,7 @@ class Spree::Slide < ActiveRecord::Base
     :default_style => :medium,
     :styles => { :medium => "300x300>", :thumb => "100x100>" }, 
     :url =>  ":s3_alias_url", # this has to be ":s3_alias_url" to work with AWS S3
-    :path => "/spree/locations/:id/:style/:basename.:extension", 
+    :path => "/spree/slides/:id/:style/:basename.:extension", 
     :convert_options => { :all => '-strip -auto-orient' }, 
     :s3_host_alias => "#{ENV['s3_bucket']}.s3.amazonaws.com"
 
