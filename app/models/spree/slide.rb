@@ -1,5 +1,5 @@
 class Spree::Slide < ActiveRecord::Base
-  attr_accessible :name, :body, :link_url, :published, :image, :position, :product_id
+  attr_accessible :name, :body, :link_url, :published, :position, :product_id, :attachment
   
   has_attached_file :attachment, 
     :default_style => :medium,
