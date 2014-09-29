@@ -8,13 +8,8 @@ group :test do
   gem 'shoulda-matchers'
   gem 'guard-rspec'
   gem 'sqlite3'
-
-  if RUBY_PLATFORM.downcase.include? "darwin"
-    gem 'rb-fsevent'
-    gem 'growl'
-  end
 end
 
-gem 'spree', '~> 1.1.3'
+gem 'spree', '~> 1.3.3'
 
 gemspec
