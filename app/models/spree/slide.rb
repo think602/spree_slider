@@ -1,18 +1,18 @@
 class Spree::Slide < ActiveRecord::Base
-  attr_accessible :name, :body, :link_url, :published, :position, :product_id, :attachment
-  
-  has_attached_file :attachment, 
+  #attr_accessible :name, :body, :link_url, :published, :position, :product_id, :attachment
+
+  has_attached_file :attachment,
     :default_style => :medium,
-    :styles => { :medium => "300x300>", :thumb => "100x100>" }, 
+    :styles => { :medium => "300x300>", :thumb => "100x100>" },
     :url =>  ":s3_alias_url", # this has to be ":s3_alias_url" to work with AWS S3
-    :path => "/spree/slides/:id/:style/:basename.:extension", 
-    :convert_options => { :all => '-strip -auto-orient' }, 
+    :path => "/spree/slides/:id/:style/:basename.:extension",
+    :convert_options => { :all => '-strip -auto-orient' },
     :s3_host_alias => "#{ENV['s3_bucket']}.s3.amazonaws.com"
 
-  # 
+  #
   #  WARNING - THIS CODE IS EXPLICITLY MEANT FOR S3 CONNECTION. FORK AND EDI THESE LINES IF THIS DOES NOT MEET YOUR USE CASE.
-  # 
-  # Note: copied from 
+  #
+  # Note: copied from
   # https://github.com/spree/spree/blob/master/core/app/models/spree/image.rb
   include Spree::Core::S3Support
   supports_s3 :attachment
@@ -36,7 +36,7 @@ class Spree::Slide < ActiveRecord::Base
   def slide_name
     if name.blank? && product.present?
       product.name
-    else 
+    else
       name
     end
   end
